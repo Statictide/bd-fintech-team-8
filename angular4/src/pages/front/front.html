@@ -1,0 +1,27 @@
+<div id="front" class="wrapper">
+	<div class="main">
+		<section>
+			<a class="nav-link" [routerLink]="['/transactions']"><h2>Kontobevægelser</h2></a>
+			<ul class="accounts">
+                <li class="account" *ngFor="let account of accounts">
+                	<a class="nav-link" 
+						[routerLink]="['/transactions', account.account_nbr]">
+                        <div class="name">{{ account.name }}</div>
+                        <div class="number">{{ account.account_nbr }}</div>
+                        <div class="balance">{{ account.balance }}</div>
+                    </a>
+                </li>
+			</ul>
+		</section>
+	</div>
+	<div class="main">
+		<section>
+			<a class="nav-link" [routerLink]="['/overview']"><h2>Overblik</h2></a>
+		</section>
+	</div>
+	<div class="main">
+		<section>
+			<a class="nav-link" [routerLink]="['/bankbot']"><h2>Banky Bot</h2></a>
+		</section>
+	</div>
+</div>

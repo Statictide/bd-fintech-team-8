@@ -1,0 +1,23 @@
+<div id="transactions" class="wrapper">
+	<div class="main">
+		<h2>Vælg konto</h2>
+		<ul class="accounts">
+			<li class="account" *ngFor="let account of accounts">
+				<a (click)="selectAccount(account)" [ngClass]="isAccountSelected(account) ? 'selected' : ''">
+					{{ account.name }} {{ account.account_nbr }}
+				</a>
+			</li>
+		</ul>
+		<h2>Saldo</h2>
+		<div class="balance">{{ selectedAccount?.balance }} kr</div>
+		<ul class="transactions">
+			<li *ngFor="let transaction of transactions" class="transaction"> 
+				<div class="date">{{ transaction.trx_time }}</div>
+				<div class="category">{{ transaction.trx_subcategory }} - transaction.trx_category </div>
+				<div class="text">{{ transaction.trx_description }}</div>
+				<div class="amount">{{ transaction.trx_ammount }}</div>
+			</li>
+		</ul>
+		<button (click)="getMoreTransactions()" class="get-more">Hent flere</button>
+	</div>
+</div>

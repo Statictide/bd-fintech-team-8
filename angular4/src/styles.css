@@ -1,0 +1,276 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* open-sans-regular - latin */
+@font-face {
+	font-family: 'OpenSans';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/assets/fonts/open-sans-v13-latin-regular.eot'); /* IE9 Compat Modes */
+	src: local('OpenSans'), local('OpenSans'),
+		 url('/assets/fonts/open-sans-v13-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		 url('/assets/fonts/open-sans-v13-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+		 url('/assets/fonts/open-sans-v13-latin-regular.woff') format('woff'), /* Modern Browsers */
+		 url('/assets/fonts/open-sans-v13-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+		 url('/assets/fonts/open-sans-v13-latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+  
+html {
+	overflow: hidden;
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	overflow: auto;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: "OpenSans", "Verdana", "Arial", "Times New Roman";
+	background: #103757;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+ul li {
+	list-style: none;
+	padding: 0;
+}
+
+ul, li {
+	padding: 0;
+}
+
+header {
+	width: 100%;
+	height: 5rem;
+	padding-top: .5rem;
+	padding-left: 3rem;
+	padding-right: .5rem;
+	padding-bottom: .5rem;
+	background: #8EABBD;
+	line-height: 4rem;
+	font-size: 2rem;
+	text-shadow: 1px 1px 2px rgb(43, 43, 43);
+}
+
+header .triangle1 {
+	z-index: 2;
+	height: 0;
+	border-left: 2px solid transparent;
+	border-right: 49px solid transparent;
+	border-top: 98px solid #91BE1F;
+	position: absolute;
+	top: 0;
+	left: -3px;
+}
+
+header .triangle2 {
+	z-index: 3;
+	position: absolute;
+	top: -11px;
+	left: -6px;
+	width: 0;
+	height: 0;
+	border-top: 80px solid transparent;
+	border-left: 31px solid #244B67;
+	border-bottom: 78px solid transparent;
+}
+
+header .triangle3 {
+	z-index: 1;
+	width: 0px;
+	height: 0;
+	border-top: 30px solid white;
+	border-right: 174px solid transparent;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+header a {
+	text-decoration: none;
+	color: white;
+}
+
+.nav-link {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+
+.wrapper {
+	margin: 2rem;
+	float: left;
+}
+
+.main {
+	background: white;
+	width: 100%;
+	float: left;
+	padding: 2rem;
+	margin-bottom: 1rem;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.main section {
+	width: 100%;
+	float: left;
+}
+
+/*forside*/
+#front .accounts a {
+	color: #249aff;
+}
+
+#front .accounts {
+	width: 100%;
+	float: left;
+}
+
+#front .account {
+	float: left;
+	width: 100%;
+	height: 2rem;
+	padding: .5rem;
+}
+
+#front .account div {
+	width: 33.3%;
+	float: left;
+}
+
+#front .chart {
+	width: 200px;
+}
+/*END: forside*/
+
+/*kontobevægelser*/
+#transactions .account a.selected {
+	color: #249aff;
+}
+
+#transactions .account a {
+	text-decoration: none;
+	color: #000;
+}
+
+#transactions .transactions {
+	width: 105%;
+	float: left;
+}
+
+#transactions .transaction {
+	float: left;
+	width: 100%;
+	background: #eee;
+}
+
+#transactions .transaction div {
+	float: left;
+	width: 25%;
+	padding: .5rem;
+	font-size: 1rem;
+}
+
+#transactions .transactions .transaction:nth-child(even) {
+	background: #fff;
+}
+
+#transactions .balance {
+	font-size: 2rem;
+}
+/*END: kontobevægelser*/
+
+/*overblik*/
+#overview .amount-stats {
+	padding-top: 2rem;
+}
+/*END: overblik*/
+
+/*chatbot*/
+#chatbot .chat {
+	display: flex;
+	flex-flow: row-wrap;
+	align-items: flex-start;
+	margin-bottom: 10px;
+}
+
+#chatbot .chat .image {
+	width: 60px;
+	height: 60px;
+	background: #ccc;
+	border-radius: 50%;
+}
+
+
+
+#chatbot .chat .chat-message {
+	width: 85%;
+	padding: 16px;
+	margin: 4px 10px 0;
+	border-radius: 10px;
+	color: #fff;
+	font-size: 16px;
+}
+
+#chatbot .chat-message.bot {
+	background: #103757;
+}
+
+#chatbot .chat-message.self {
+	background: #91BE1F;
+	order: -1;
+}
+
+#chatbot #chat-box {
+	background: #8EABBD;
+	width: 600px;
+	padding: 8px 24px 24px 24px;
+}
+  
+ #chatbot #chat-window {
+	height: 450px;
+    width: 100%;
+	text-align:left;
+	padding: 12px;
+	margin-bottom: 16px;
+    background: #fff;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	box-sizing: border;
+}
+
+#chatbot #user-msg {
+	width: 80%;
+	height: 40px;
+	border: none;
+	font-size: 16px;
+	flex: 1;
+	padding: 8px;
+}
+
+#chatbot #submit-btn {
+	background:#91BE1F;
+	padding: 10px 18px;
+	font-size: 15px;
+	border: none;
+	margin: 0 0 0 8px;
+	border-radius: 3px;
+	color: white;
+	cursor: pointer;
+}
+
+#chatbot .input-wrapper {
+	display: flex;
+}
+
+#chatbot .image.bot {
+	background:url('./gfx/botimg.png');
+	background-size: contain;
+}
+
+/*END: chatbot*/

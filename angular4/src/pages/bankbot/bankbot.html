@@ -1,0 +1,16 @@
+<div id="chatbot" class="wrapper">
+	<div id="chat-box">
+		<h3>Banky Bot</h3>
+		<div id="chat-window">
+			<div class="chat" *ngFor="let msg of messages">
+				<div class="image {{msg.sender}}"></div>
+				<p class="chat-message {{msg.sender}}"> {{msg.message}}</p>
+			</div>
+		</div>
+		<div class="input-wrapper">
+			<input name="usermsg" type="text" [(ngModel)]="message" id="user-msg" autocomplete="off" />
+			<input name="submitmsg" (click)="sendMessage()" type="submit" id="submit-btn" value="Send" />
+		</div>
+	</div>
+</div>
+
