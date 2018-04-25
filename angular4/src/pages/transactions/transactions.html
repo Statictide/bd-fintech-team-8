@@ -3,7 +3,7 @@
 		<h2>Vælg konto</h2>
 		<ul class="accounts">
 			<li class="account" *ngFor="let account of accounts">
-				<a (click)="selectAccount(account)" [ngClass]="isAccountSelected(account) ? 'selected' : ''">
+				<a [routerLink]="['/transactions', account.account_nbr]" (click)="selectAccount(account)" [ngClass]="isAccountSelected(account) ? 'selected' : ''">
 					{{ account.name }} {{ account.account_nbr }}
 				</a>
 			</li>
