@@ -8,7 +8,10 @@
 			<input placeholder="år" [(ngModel)]="amountStats.year" /> 
 			med beløb over 
 			<input placeholder="beløb" [(ngModel)]="amountStats.min" /> 
-			kr
+			kr fra konto 
+			<select [(ngModel)]="amountStats.account_nbr">
+				<option *ngFor="let account of accounts" value="{{account.account_nbr}}">{{account.name}}</option>
+			</select>
 			<button (click)="refreshAmountStats()">Søg</button>
 			<div class="amount-stats-transactions">
 				<ul class="transactions">
