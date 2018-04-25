@@ -12,7 +12,7 @@
 		<div class="balance">{{ selectedAccount?.balance }} kr</div>
 		<ul class="transactions">
 			<li *ngFor="let transaction of transactions" class="transaction"> 
-				<div class="date">{{ transaction.trx_time }}</div>
+				<div class="date">{{ transaction.trx_time | date : "dd.M.yyyy"}}</div>
 				<div class="category">{{ transaction.trx_subcategory }} - transaction.trx_category </div>
 				<div class="text">{{ transaction.trx_description }}</div>
 				<div class="amount">{{ transaction.trx_ammount }}</div>
