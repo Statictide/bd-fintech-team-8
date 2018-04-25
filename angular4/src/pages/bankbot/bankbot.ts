@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild,  ElementRef } from '@angular/core';
 import { Service } from '../../services/service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
     templateUrl: './bankbot.html'
 })
 export class Bankbot {
-
+    @ViewChild('scrollMe') private myScrollContainer: ElementRef;
     private message: string = "";
     private annoyanceCounter: number;
     private annoyanceBurst: number = 3;
@@ -19,6 +19,7 @@ export class Bankbot {
 
     ngOnInit(){
         this.insertMessage("bot", "Hej, du snakker med Banky Bot");
+        this.scrollToBottom();
     }
 
     private sendMessage(){
@@ -28,45 +29,66 @@ export class Bankbot {
         this.service.fetchBotIntent(this.message).then(
             data => {
                 this.insertMessage("self", this.message);
-                this.message = "";
+                console.log("DATA:"+  data);
                 let response = this.handleBotResponse(data);
                 this.insertMessage("bot", response);
             }
         )
     }
 
+    scrollToBottom(): void {
+        try {
+            this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+        } catch(err) { }                 
+    }
+    keyDownFunction(event) {
+        if(event.keyCode == 13) {
+         this.sendMessage();
+        }
+      }
+
     private insertMessage(sender, message){
         this.messages.push(new Message(sender, message));  
     }
 
     private handleBotResponse(response){
-        let limit = 0.7;
+        let limit = 0.8;
         let intent = null;
+        let intentMsg;
         response.forEach(element => {
-            if(element.value < limit){
+            console.log("VAL:" + element.value);
+            if(element.value > limit){
+                console.log("IF");
                 limit = element.value;
                 intent = element.label;
             }
         });
-        console.log(response);
-        let intentMsg;
-        switch(intent){
-            case "Budgetkonto":
-                this.annoyanceCounter = 0;
-                intentMsg = "Klassificeret: Budgetkonto";
-                break;
-            case "Overblik":
-                this.annoyanceCounter = 0;
-                intentMsg = "Klassificeret: Overblik";
-                break;
-            case "Hilsen":
-                this.annoyanceCounter++;
-                intentMsg = this.welcomeMessage();
-                break;
-            default:
-                intentMsg = "Den besked forstod jeg desværre ikke.";
-                break;
-        }
+       
+        console.log("REPSONSE:" + JSON.stringify(response));
+        console.log("INTENT" + intent);
+        
+            switch(intent){
+                case "Budgetkonto":
+                    this.annoyanceCounter = 0;
+                    intentMsg = "Klassificeret: Budgetkonto";
+                    break;
+                case "Overblik":
+                    this.annoyanceCounter = 0;
+                    intentMsg = "Klassificeret: Overblik";
+                    break;
+                case "Opsparingskonto":
+                    this.annoyanceCounter = 0;
+                    intentMsg = "Klassificeret: Opsparingskonto";
+                    break;
+                      
+                case "Hilsen":
+                    this.annoyanceCounter++;
+                    intentMsg = this.welcomeMessage();
+                    break;
+                default:
+                    intentMsg = "Den besked forstod jeg desværre ikke.";
+                    break;
+            }
         return intentMsg;
     }
 

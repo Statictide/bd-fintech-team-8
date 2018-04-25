@@ -1,0 +1,8 @@
+Bughunt opg1 
+
+- netbank team
+- får fejl ind og løse dem.
+- Der er 14 fejl
+- Der er 4 vi ved der eksisterer som i ikke får af vide (evt. flere)
+- Ved en løst bugg ræk hånnden op
+- 
