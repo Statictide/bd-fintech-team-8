@@ -36,7 +36,7 @@ export class Bankbot {
     }
 
     private insertMessage(sender, message){
-        this.messages.push(new Message(sender, message));  
+        this.messages.push(new Message(sender, message)); 
     }
 
     private handleBotResponse(response){
