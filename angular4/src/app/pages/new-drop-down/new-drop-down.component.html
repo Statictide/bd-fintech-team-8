@@ -1,0 +1,15 @@
+<h1>
+ By kategori
+</h1>
+<select>
+  <option *ngFor="let account of accounts" value="{{account.account_nbr}}">{{account.name}}</option>
+</select>
+<div class="input-wrapper">
+  <input name="submitmsg" (click)="sendMessage()"  type="submit" id="submit-btn" value="Send" />
+  <select>
+      <option *ngFor="let inf of info" value="{{ inf}}">{{ inf}}</option>
+  </select>
+  
+
+</div>
+

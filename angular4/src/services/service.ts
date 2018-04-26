@@ -47,6 +47,16 @@ export class Service {
             });        
     }
 
+    public fetchTransactionsByCat(accNbr, cat){
+        return this.http.get(this.TRANSACTIONS_SERVICE_URL + "?arg1=fetchByCat&arg2=" + accNbr + "&arg3=" +cat)
+            .toPromise()
+            .catch(error => {
+                console.debug('Error fetching transactions by date: ' + error.message);
+            });        
+    }
+
+    
+
     //fetches list of all categories with sub-categories
     public fetchCategories(){
         return this.http.get(this.CATEGORIES_SERVICE_URL)

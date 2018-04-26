@@ -12,6 +12,7 @@ export class Transactions {
     private accounts = [];
     private selectedAccount;
     private currentPage;
+   
 
     constructor(
         private service: Service,

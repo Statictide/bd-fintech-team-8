@@ -16,13 +16,15 @@ import { Transactions } from '../pages/transactions/transactions';
 import { Overview } from '../pages/overview/overview';
 import { Bankbot } from '../pages/bankbot/bankbot';
 import { SecretDirective } from './secret.directive';
+import { NewDropDownComponent } from './pages/new-drop-down/new-drop-down.component';
 
 export const routes: Routes = [
   { path: '', component: Front },
   { path: 'transactions', component: Transactions},
   { path: 'transactions/:id', component: Transactions },
   { path: 'bankbot', component: Bankbot },
-  { path: 'overview', component: Overview }
+  { path: 'overview', component: Overview },
+  { path: 'dropdown', component: NewDropDownComponent }
 ];
 
 export function highchartsFactory() {
@@ -36,7 +38,8 @@ export function highchartsFactory() {
     Overview,
     Bankbot,
     AppComponent,
-    SecretDirective
+    SecretDirective,
+    NewDropDownComponent
   ],
   imports: [
     BrowserModule,

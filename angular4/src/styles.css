@@ -200,10 +200,12 @@ header a {
 }
 
 #chatbot .chat .image {
+	background-image: url('./test.jpg')  no-repeat;
 	width: 60px;
 	height: 60px;
 	background: #ccc;
 	border-radius: 50%;
+	
 }
 
 
