@@ -57,7 +57,8 @@ export class Overview {
 
     private amountStats = {
         year: 2016, 
-        min: 100
+        min: 100,
+		account_nbr: "7454-7548228"
     };
 
     constructor(
@@ -79,6 +80,7 @@ export class Overview {
 
     private dataReady(data){
         this.accounts = data.accounts;
+		console.log("accounts: "+JSON.stringify(this.accounts));
         this.chartData.names = [];
         this.chartData.balances = [];
         for(let i = 0; i < this.accounts.length; i++){
@@ -90,8 +92,9 @@ export class Overview {
     }
 
     private refreshAmountStats(){
+		console.log(JSON.stringify(this.amountStats));
         this.transactions = [];
-        this.service.fetchTransactionsByDate(this.accounts[0].account_nbr, this.amountStats.year + '-01-01', this.amountStats.year + '-12-31').then(
+        this.service.fetchTransactionsByDate(this.amountStats.account_nbr, this.amountStats.year + '-01-01', this.amountStats.year + '-12-31').then(
             data => {
                 for (let transaction of data['transactions']) {
                    if(transaction.trx_ammount > this.amountStats.min){
